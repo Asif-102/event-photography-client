@@ -1,12 +1,15 @@
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import logo from '../../images/navLogo.svg';
 
 const NavBar = () => {
     return (
         <div className='container'>
             <Navbar expand="lg">
-                <Navbar.Brand href="#home">Event Photography</Navbar.Brand>
+                <Navbar.Brand href="#home"> 
+                    <img src={logo} alt="" width="40px"/> Event Photography
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
