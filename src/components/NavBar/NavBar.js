@@ -5,7 +5,7 @@ import logo from '../../images/navLogo.svg';
 
 const NavBar = () => {
     return (
-        <div className='container'>
+        <div className='container font-weight-bold'>
             <Navbar expand="lg">
                 <Navbar.Brand href="#home"> 
                     <img src={logo} alt="" width="40px"/> Event Photography
