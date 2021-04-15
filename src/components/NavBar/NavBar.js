@@ -26,6 +26,9 @@ const NavBar = () => {
                             <Link to="#contact-us" className="nav-link mr-3">Contact Us</Link>
                         </Nav.Link>
                         <Nav.Link>
+                            <Link to="/Dashboard" className="nav-link mr-3">Dashboard</Link>
+                        </Nav.Link>
+                        <Nav.Link>
                             <Link to="/login" className="btn btn-warning mr-3">Login</Link>
                         </Nav.Link>
                     </Nav>
