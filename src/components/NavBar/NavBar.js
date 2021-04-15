@@ -17,19 +17,16 @@ const NavBar = () => {
                             <Link to="/" className="nav-link mr-3">Home</Link>
                         </Nav.Link>
                         <Nav.Link>
-                            <Link to="#portfolio" className="nav-link mr-3">Our Portfolio</Link>
+                            <Link to="#projects" className="nav-link mr-3">Our Projects</Link>
                         </Nav.Link>
                         <Nav.Link>
-                            <Link to="#out-team" className="nav-link mr-3">Our Team</Link>
+                            <Link to="#about-us" className="nav-link mr-3">About Us</Link>
                         </Nav.Link>
                         <Nav.Link>
                             <Link to="#contact-us" className="nav-link mr-3">Contact Us</Link>
                         </Nav.Link>
                         <Nav.Link>
-                            <Link to="#contact-us" className="nav-link mr-3">Admin</Link>
-                        </Nav.Link>
-                        <Nav.Link>
-                            <Link to="/login" className="btn btn-primary mr-3">Login</Link>
+                            <Link to="/login" className="btn btn-warning mr-3">Login</Link>
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

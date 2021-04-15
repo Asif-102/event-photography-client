@@ -1,4 +1,5 @@
 import React from 'react';
+import ContactUs from '../ContactUs/ContactUs';
 import Header from '../Header/Header';
 import Services from '../Services/Services';
 import Testimonials from '../Testimonials/Testimonials';
@@ -11,6 +12,7 @@ const Home = () => {
             <Services></Services>
             <Works></Works>
             <Testimonials></Testimonials>
+            <ContactUs></ContactUs>
         </div>
     );
 };
