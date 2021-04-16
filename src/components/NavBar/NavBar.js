@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 import logo from '../../images/navLogo.svg';
 
 const NavBar = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const {name} = loggedInUser;
     return (
         <div className='container font-weight-bold'>
             <Navbar expand="lg">
@@ -29,7 +32,9 @@ const NavBar = () => {
                             <Link to="/Dashboard" className="nav-link mr-3">Dashboard</Link>
                         </Nav.Link>
                         <Nav.Link>
-                            <Link to="/login" className="btn btn-warning mr-3">Login</Link>
+                            {
+                                name ? <Link style={{cursor:'default'}} to="#" className="nav-link mr-3 bg-warning">{name}</Link> : <Link to="/login" className="btn btn-warning mr-3">Login</Link>
+                            }
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

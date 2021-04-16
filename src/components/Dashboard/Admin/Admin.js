@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Admin.css';
 import logo from '../../../images/navLogo.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,8 +8,11 @@ import AddService from './AddService/AddService';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import ManageServices from './ManageServices/ManageServices';
 import { useHistory } from 'react-router';
+import { UserContext } from '../../../App';
 
 const Admin = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const {name} = loggedInUser;
 
     let history = useHistory();
     function handleClick() {
@@ -50,7 +53,7 @@ const Admin = () => {
         <>
             <div className="d-flex justify-content-between font-weight-bold">
                 <p className="logo" onClick={handleClick}><img src={logo} alt="" width="40px" /> Event Photography</p>
-                <h4>Admin Name</h4>
+                <h4 className="bg-warning">{name}</h4>
             </div><hr/>
             <div className="row">
                     <div className="col-md-12 col-lg-3 screen">
