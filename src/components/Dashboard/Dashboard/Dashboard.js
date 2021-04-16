@@ -5,8 +5,8 @@ import Admin from '../Admin/Admin';
 const Dashboard = () => {
     return (
         <section className="container">
-                {/* <Admin></Admin> */}
-                <User></User>
+                <Admin></Admin>
+                {/* <User></User> */}
         </section>
     );
 };
