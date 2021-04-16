@@ -1,35 +1,25 @@
-import React from 'react';
-import weeding from '../../../images/weeding.jpg';
-import product from '../../../images/product.jpg';
-import birthday from '../../../images/birthday.jpg';
+import React, { useEffect, useState } from 'react';
 import Service from './Service/Service';
 
-const services = [
-    {
-        id:1,
-        img:weeding,
-        title:'Weeding Photography',
-    },
-    {
-        id:2,
-        img:product,
-        title:'Product Photography',
-    },
-    {
-        id:3,
-        img:birthday,
-        title:'Birthday Photography',
-    }
-]
-
 const Services = () => {
+    const [services, setServices] = useState([]);
+    
+    useEffect(()=>{
+        fetch(`http://localhost:5000/services`)
+        .then(res => res.json())
+        .then(data => setServices(data))
+    },[])
+
+
     return (
         <section className="container my-5">
             <h1 className='text-center font-weight-bold py-4 mb-4'>Our Awesome Services</h1>
             <div className="row justify-content-center align-items-center">
-                {/* <div>Loading....</div> */}
                 {
-                    services.map(service => <Service key={Service.id} service={service}></Service>)
+                    services.length == 0 && <h4 className="text-center">Loading....</h4>
+                }
+                {
+                    services.map(service => <Service key={service._id} service={service}></Service>)
                 }
             </div>
         </section>
