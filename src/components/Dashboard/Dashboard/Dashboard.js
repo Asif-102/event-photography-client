@@ -4,6 +4,7 @@ import Admin from '../Admin/Admin';
 import { UserContext } from '../../../App';
 
 const Dashboard = () => {
+
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const {email} = loggedInUser;
     

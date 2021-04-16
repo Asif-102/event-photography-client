@@ -14,6 +14,7 @@ const AddService = () => {
         const serviceData = {
             title:data.serviceTitle,
             description:data.serviceDescription,
+            price:data.serviceCost,
             image:imageURL
         }
         if(imageURL == null){
@@ -72,7 +73,10 @@ const AddService = () => {
                 <br></br>
                 <label htmlFor="serviceDescription">Service Description</label>
                 <textarea name="serviceDescription" id="serviceDescription" cols="30" rows="10" ref={register({ required: true })} className="form-control" placeholder="Enter Description"></textarea>
-                {errors.serviceDescription && <span className="text-danger"><small>Short description is required</small></span>}
+                {errors.serviceDescription && <span className="text-danger"><small>Short description is required</small></span>}<br></br>
+                <label htmlFor="serviceCost">Service Cost</label>
+                <input type="number" placeholder="Enter Cost" name="serviceCost" id="serviceCost" className="form-control" ref={register({ required: true })} />
+                {errors.serviceCost && <span className="text-danger"><small>Service Cost is required</small></span>}
                 <br></br>
                 <input type="submit" className="btn btn-primary px-3 py-2" value="Submit" />
             </form>

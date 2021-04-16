@@ -1,9 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router';
 
 const Book = () => {
+
+    let { id } = useParams();
+
+    console.log(id)
+
     const { register, handleSubmit, errors, reset } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => console.log('');
     return (
         <main>
             <form style={{ maxWidth: '570px' }} onSubmit={handleSubmit(onSubmit)}>
