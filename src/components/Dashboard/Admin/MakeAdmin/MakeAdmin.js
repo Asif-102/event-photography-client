@@ -16,13 +16,18 @@ const MakeAdmin = () => {
             },
             body:JSON.stringify(adminEmail)
         })
-        .then(res => console.log('server side response', res))
+        .then(res => {
+            if(res.ok){
+                alert('New admin email added successfully');
+                reset();
+            }
+        })
     }
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} style={{maxWidth:'570px'}}>
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="example@gmail.com" ref={register({required:true})} className="form-control"/>
+                <input type="email" id="email" name="email" placeholder="enter a valid admin gmail ex: example@gmail.com" ref={register({required:true})} className="form-control"/>
                 {errors.email && <span className="text-danger"><small>Email cannot be empty</small></span>}
                 <br></br>
                 <input type="submit" className="btn btn-primary px-3 py-2"value="Submit"/>
