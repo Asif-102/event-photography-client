@@ -6,8 +6,15 @@ import { faHdd, faShoppingCart, faCommentDots } from '@fortawesome/free-solid-sv
 import Book from './Book/Book';
 import BookingList from './BookingList/BookingList';
 import Review from './Review/Review';
+import { useHistory } from 'react-router';
 const User = () => {
-    const [book, setBook] = useState(false);
+
+    let history = useHistory();
+    function handleClick() {
+        history.push("/");
+      }
+
+    const [book, setBook] = useState(true);
     const [bookingList, setBookingList] = useState(false);
     const [review, setReview] = useState(false);
 
@@ -29,7 +36,7 @@ const User = () => {
     return (
         <>
             <div className="d-flex justify-content-between font-weight-bold">
-                <p className="logo"><img src={logo} alt="" width="40px" /> Event Photography</p>
+                <p className="logo" onClick={handleClick}><img src={logo} alt="" width="40px" /> Event Photography</p>
                 <h4>User Name</h4>
             </div><hr/>
             <div className="row">

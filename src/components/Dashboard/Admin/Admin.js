@@ -7,9 +7,16 @@ import OrderList from './OrderList/OrderList';
 import AddService from './AddService/AddService';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import ManageServices from './ManageServices/ManageServices';
+import { useHistory } from 'react-router';
 
 const Admin = () => {
-    const [orderList, setOrderList] = useState(false);
+
+    let history = useHistory();
+    function handleClick() {
+        history.push("/");
+      }
+
+    const [orderList, setOrderList] = useState(true);
     const [addService, setAddService] = useState(false);
     const [makeAdmin, setMakeAdmin] = useState(false);
     const [manageService, setManageService] = useState(false);
@@ -42,7 +49,7 @@ const Admin = () => {
     return (
         <>
             <div className="d-flex justify-content-between font-weight-bold">
-                <p className="logo"><img src={logo} alt="" width="40px" /> Event Photography</p>
+                <p className="logo" onClick={handleClick}><img src={logo} alt="" width="40px" /> Event Photography</p>
                 <h4>Admin Name</h4>
             </div><hr/>
             <div className="row">
