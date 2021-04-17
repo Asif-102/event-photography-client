@@ -8,21 +8,21 @@ const Dashboard = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const {email} = loggedInUser;
     
-    const [admin, setAdmin] = useState([]);
+    const [admin, setAdmin] = useState(null);
 
     useEffect(()=>{
         fetch(`http://localhost:5000/admin?email=${email}`)
         .then(res => res.json())
-        .then(data => setAdmin(data))
+        .then(data => setAdmin(data.length))
     },[email])
 
     return (
         <section className="container">
                 {
-                    admin.length > 0 && <Admin></Admin>
+                    admin == 1  && <Admin></Admin>
                 }
                 {
-                    admin.length == 0 && <User></User>
+                    admin == 0 && <User></User>
                 }
         </section>
     );
