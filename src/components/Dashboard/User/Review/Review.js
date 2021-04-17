@@ -16,7 +16,7 @@ const Review = () => {
             review:data.review
         }
 
-        const url = `http://localhost:5000/addReview`;
+        const url = `https://event-photography-company.herokuapp.com/addReview`;
 
         fetch(url, {
             method:'POST',

@@ -11,7 +11,7 @@ const Dashboard = () => {
     const [admin, setAdmin] = useState(null);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/admin?email=${email}`)
+        fetch(`https://event-photography-company.herokuapp.com/admin?email=${email}`)
         .then(res => res.json())
         .then(data => setAdmin(data.length))
     },[email])

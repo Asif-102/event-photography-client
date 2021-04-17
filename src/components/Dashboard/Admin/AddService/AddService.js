@@ -25,7 +25,7 @@ const AddService = () => {
             setUpload('Uploaded successfull');
             setColor('green');
         }
-        const url = `http://localhost:5000/addService`;
+        const url = `https://event-photography-company.herokuapp.com/addService`;
 
         fetch(url, {
             method:'POST',

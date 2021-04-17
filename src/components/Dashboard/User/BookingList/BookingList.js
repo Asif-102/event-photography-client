@@ -9,7 +9,7 @@ const BookingList = () => {
     const[bookedData, setBookedData] = useState([])
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/userBooked?email=${email}`)
+        fetch(`https://event-photography-company.herokuapp.com/userBooked?email=${email}`)
         .then(res => res.json())
         .then(data => setBookedData(data))
     },[email])

@@ -7,7 +7,7 @@ const MakeAdmin = () => {
         const adminEmail = {
             email:data.email
         }
-        const url = `http://localhost:5000/addAdmin`;
+        const url = `https://event-photography-company.herokuapp.com/addAdmin`;
 
         fetch(url,{
             method:'POST',

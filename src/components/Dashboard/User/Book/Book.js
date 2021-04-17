@@ -16,7 +16,7 @@ const Book = () => {
     const [visible, setVisible] = useState(null)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/getService?_id=${id}`)
+        fetch(`https://event-photography-company.herokuapp.com/getService?_id=${id}`)
             .then(res => res.json())
             .then(data => {
                 setServiceFind(data[0])
@@ -36,7 +36,7 @@ const Book = () => {
             payId: paymentId,
             bookingState: 'Pending'
         }
-        const url = `http://localhost:5000/addBooking`;
+        const url = `https://event-photography-company.herokuapp.com/addBooking`;
 
         fetch(url, {
             method: 'POST',
