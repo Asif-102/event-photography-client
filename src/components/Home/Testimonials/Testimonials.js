@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import user from '../../../images/user.svg';
 import Testimonial from './Testimonial/Testimonial';
 
 const Testimonials = () => {
@@ -17,7 +16,7 @@ const Testimonials = () => {
             <h1 className='text-center font-weight-bold py-4 mb-4'>Clients Feedback</h1>
             <div className="row justify-content-between pt-4">
                 {
-                    reviews.length == 0 && <h4>Loading....</h4>
+                    reviews.length == 0 && <h6>Loading....</h6>
                 }
                 {
                     reviews.map(revew => <Testimonial key={revew._id}

@@ -16,7 +16,7 @@ const Services = () => {
             <h1 className='text-center font-weight-bold py-4 mb-4'>Our Awesome Services</h1>
             <div className="row justify-content-center align-items-center">
                 {
-                    services.length == 0 && <h4>Loading....</h4>
+                    services.length == 0 && <h6>Loading....</h6>
                 }
                 {
                     services.map(service => <Service key={service._id} service={service}></Service>)
