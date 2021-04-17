@@ -13,16 +13,14 @@ const Book = () => {
     const [serviceFind, setServiceFind] = useState({});
     const { title, price, image } = serviceFind;
 
-    const [visible, setVisible] = useState([])
-
-    const [bookService, setBookService] = useState(null);
+    const [visible, setVisible] = useState(null)
 
     useEffect(() => {
         fetch(`http://localhost:5000/getService?_id=${id}`)
             .then(res => res.json())
             .then(data => {
                 setServiceFind(data[0])
-                setVisible(data)
+                setVisible(data.length)
             })
     }, [id])
 
@@ -30,53 +28,57 @@ const Book = () => {
 
     const handlePaymentSuccess = paymentId => {
         const bookingData = {
-            userName:name,
-            userEmail:email,
-            serviceTitle:title,
-            serviceImg:image,
-            serviceCost:price,
-            payId:paymentId,
-            bookingState:'Pending'
+            userName: name,
+            userEmail: email,
+            serviceTitle: title,
+            serviceImg: image,
+            serviceCost: price,
+            payId: paymentId,
+            bookingState: 'Pending'
         }
-        const url  = `http://localhost:5000/addBooking`;
+        const url = `http://localhost:5000/addBooking`;
 
-        fetch(url,{
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json'
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
             },
-            body:JSON.stringify(bookingData)
+            body: JSON.stringify(bookingData)
         })
-        .then(response =>{
-            if(response.ok){
-                alert('booking successfull');
-            }
-        })
+            .then(response => {
+                if (response.ok) {
+                    alert('booking successfull');
+                }
+            })
     }
 
     return (
         <main>
-            <div style={{display: visible.length == 0 ? 'block':'none'}}>
-                <h2>Please Select a Service from Service Section for booking</h2>
-            </div>
-            <div style={{display: visible.length == 0 ? 'none':'block'}}>
-                <div style={{ display: bookService ? 'none' : 'block' }} className="col-6">
-                    <form style={{ maxWidth: '570px' }}>
+            {
+                visible == 1 && <div>
+                    <div className="col-6">
+                        <form style={{ maxWidth: '570px' }}>
 
-                        <input type="text" name="name" placeholder="Your name/ Company name" className="form-control" defaultValue={name} ref={register({ required: true })} disabled/>
+                            <h4>User Name:<input type="text" name="name" placeholder="Your name/ Company name" className="form-control" defaultValue={name} ref={register({ required: true })} disabled /></h4>
 
-                        <input type="email" name="email" placeholder="Your email address" className="form-control" defaultValue={email} ref={register({ required: true })} disabled/>
-                        
-                        <input type="text" name="service" placeholder="Service Title" className="form-control" defaultValue={title} ref={register({ required: true })} disabled/>
-                        <br></br>
+                            <h4>User Email:<input type="email" name="email" placeholder="Your email address" className="form-control" defaultValue={email} ref={register({ required: true })} disabled /></h4>
 
-                        <h5>Your Service charged will be <span className="text-primary">${price}</span></h5> <br />
-                    </form>
+                            <h4>Service Name:<input type="text" name="service" placeholder="Service Title" className="form-control" defaultValue={title} ref={register({ required: true })} disabled /></h4>
+                            <br></br>
+
+                            <h5>Your Service charged will be <span className="text-primary">${price}</span></h5> <br />
+                        </form>
+                    </div>
+                    <div className="col-6">
+                        <ProcessPayment handlePayment={handlePaymentSuccess}></ProcessPayment>
+                    </div>
                 </div>
-                <div className="col-6">
-                    <ProcessPayment handlePayment={handlePaymentSuccess}></ProcessPayment>
+            }
+            {
+                visible !== 1 && <div>
+                    <h5 className="text-primary">Please Select a Service from Service Section for booking</h5>
                 </div>
-            </div>
+            }
         </main>
     );
 };
