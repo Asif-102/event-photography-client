@@ -19,7 +19,7 @@ const EditDelete = ({ manage }) => {
         
         // console.log(serviceUpdate)
 
-        fetch(`https://event-photography-company.herokuapp.com/deleteService/${_id}`,{
+        fetch(`https://event-photography-company.herokuapp.com/updateService/${_id}`,{
             method:'PATCH',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify(serviceUpdate)
