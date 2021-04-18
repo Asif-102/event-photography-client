@@ -13,7 +13,7 @@ const Testimonial = ({revew}) => {
                 </div>
              </div>
              <div className="text-muted">
-                {review}
+                <p style={{overflow:'hidden'}}>{review}</p>
              </div>
         </div>
     );
