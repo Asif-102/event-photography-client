@@ -16,4 +16,4 @@
 - Admins can add service , edit service and delete service
 - Admins can change users booking status 
 
-[Live-Site-Url]: <https://event-photography.netlify.app/>
+[Live-Site-Link] (https://event-photography.netlify.app/)
